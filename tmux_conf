@@ -1,0 +1,24 @@
+cat > ~/.tmux.conf <<'EOF'
+# Enable mouse support
+set -g mouse on
+
+# Let mouse click activate panes
+set -g pane-active-border-style bold
+set -g pane-border-style dim
+
+# Larger scrollback history
+set -g history-limit 100000
+
+# Vi-style copy mode
+setw -g mode-keys vi
+
+# Faster escape response
+set -sg escape-time 0
+EOF
+
+# Reload tmux config if tmux is already running
+tmux source-file ~/.tmux.conf 2>/dev/null || true
+
+echo "[+] tmux mouse support enabled."
+echo "[+] Click a pane to activate it."
+echo "[+] Config saved to ~/.tmux.conf"
